@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #3c558d;
+  --gray-color: #525252;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
+  font-optical-sizing: auto;
+  background-color: whitesmoke;
+}
+
+main {
+  padding: 1rem;
+}
+
+header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  inset: 0;
+  height: 70px;
+  z-index: 10;
+  background-color: whitesmoke;
+  border-bottom: 1px solid var(--primary-color);
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+}
+
+.available-keywords-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: var(--primary-color);
+
+  select {
+    border: none;
+    text-transform: uppercase;
+    background-color: white;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  @media (width > 1023px) {
+    flex-direction: row;
+  }
+}
+
+.quotes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 450px), 1fr));
+  gap: 1rem;
+
+  .quotes-article {
+    position: relative;
+    min-height: 300px;
+    background: linear-gradient(to bottom right, white 60%, rgba(60, 85, 141, 0.2));
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 5px 5px rgba(60, 85, 141, 0.4);
+
+    .quotes-article-quote {
+      font-family: "DM Serif Text", serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-optical-sizing: auto;
+      font-size: 20px;
+      text-align: center;
+      text-wrap: balance;
+      color: var(--primary-color);
+
+      @media (width > 1023px) {
+        font-size: 22px;
+      }
+    }
+
+    .quotes-article-author {
+      font-style: italic;
+      color: var(--gray-color);
+    }
+
+    .quotes-article-background-image {
+      display: grid;
+      place-content: center;
+      position: absolute;
+      top: 50px;
+      opacity: 0.07;
+
+      & img {
+        width: 50px;
+      }
+    }
+
+    .quotes-article-quote-keyword-match {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.8rem;
+      position: absolute;
+      bottom: 1rem;
+      right: 1.5rem;
+      color: var(--gray-color);
+
+      span {
+        font-weight: bold;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: whitesmoke;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+  height: 100px;
+  border-top: 1px solid var(--primary-color);
+
+  a {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+}
