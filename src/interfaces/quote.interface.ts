@@ -1,4 +1,5 @@
-export interface Quote {
-  quote: string;
+export interface QuoteProps {
   author: string;
+  quote: string;
+  qod?: boolean;
 }

@@ -1,24 +1,12 @@
-import { useState } from "react";
-import { apiQuotes } from "../../mocks/quotes";
-import { transformApiResponse } from "../utils/transform-api-response";
-import type { Quote as IQuote } from "../interfaces";
+import { useContext } from "react";
+import QuotesContext from "../context/QuotesContex";
 
 export const useQuotes = () => {
-  const [quotes] = useState<IQuote[]>(() => transformApiResponse(apiQuotes));
-  const [filteredQuotes, setFilteredQuotes] = useState<{ keyword: string | null; quotes: IQuote[] }>({ keyword: null, quotes });
+  const quoteContext = useContext(QuotesContext);
 
-  const onChangeKeyword = (keyword: string) => {
-    if (keyword) {
-      const filteredQuotes = quotes.filter(({ quote }) => quote.split(" ").includes(keyword));
-      setFilteredQuotes({ keyword, quotes: filteredQuotes });
-    } else {
-      setFilteredQuotes({ keyword: null, quotes });
-    }
-  };
+  if (!quoteContext) {
+    throw new Error("useQuotes must be used in a QuotesProvider");
+  }
 
-  return {
-    quotes,
-    filteredQuotes,
-    onChangeKeyword,
-  };
+  return quoteContext;
 };

@@ -1,6 +1,6 @@
-import type { ApiQuote } from "../src/interfaces";
+import type { ApiQuoteProps } from "../src/interfaces";
 
-export const apiQuotes: ApiQuote[] = [
+export const apiQuotes: ApiQuoteProps[] = [
   {
     q: "A bird does not sing because it has an answer. It sings because it has a song.",
     a: "Chinese Proverb",

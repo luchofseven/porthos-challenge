@@ -4,8 +4,8 @@
 
 ###### API
 
-- `https://zenquotes.io/`
-- `https://docs.zenquotes.io/zenquotes-documentation/`
+- [https://zenquotes.io/](https://zenquotes.io/)
+- [https://docs.zenquotes.io/zenquotes-documentation/](https://docs.zenquotes.io/zenquotes-documentation/)
 
 ###### REQUISITOS
 

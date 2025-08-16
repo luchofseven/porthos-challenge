@@ -1,6 +1,6 @@
-import type { ApiQuote, Quote } from "../interfaces";
+import type { ApiQuoteOfDayProps, ApiQuoteProps, QuoteProps } from "../interfaces";
 
-export const transformApiResponse = (quotes: ApiQuote[]): Quote[] =>
+export const transformApiResponse = (quotes: ApiQuoteProps[] | ApiQuoteOfDayProps[]): QuoteProps[] =>
   quotes.map((quote) => ({
     quote: quote.q,
     author: quote.a,

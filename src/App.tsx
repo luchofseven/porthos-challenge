@@ -1,39 +1,34 @@
 import { useQuotes } from "./hooks/useQuotes";
-import { Quote } from "./quotes/components/Quote";
+import { QuotesContainer } from "./quotes/components/QuotesContainer";
 import { SelectKeywordQuote } from "./quotes/components/SelectKeywordQuote";
+import { Quote } from "./quotes/components/Quote";
+import { Layout } from "./layout/Layout";
 
 // const API_URL = "https://zenquotes.io/api/";
 
 // [mode] = retreval type [random,today,quotes]
 
 function App() {
-  const { filteredQuotes, onChangeKeyword } = useQuotes();
+  const { quotes, keyword } = useQuotes();
 
   return (
-    <>
-      <header>
-        <h1>Porthocitas</h1>
-      </header>
+    <Layout>
+      {/* Selector de keywords disponibles */}
+      <SelectKeywordQuote />
 
-      <main>
-        <SelectKeywordQuote onChangeKeyword={onChangeKeyword} />
+      {/* Componente contenedor custom para renderizar hijos con una pequeña animación */}
+      <QuotesContainer className="quotes-container">
+        {quotes.map((data) => (
+          <Quote key={data.quote} quote={data.quote} author={data.author} />
+        ))}
+      </QuotesContainer>
 
-        <section className="quotes-container">
-          {!filteredQuotes.quotes.length && <span>No hay citas para la palabra {filteredQuotes.keyword}</span>}
-
-          {filteredQuotes.quotes.map((data) => (
-            <Quote key={data.quote} quote={data.quote} author={data.author} />
-          ))}
-        </section>
-      </main>
-
-      <footer>
-        Inspirational quotes provided by
-        <a href="https://zenquotes.io/" target="_blank">
-          ZenQuotes API
-        </a>
-      </footer>
-    </>
+      {!quotes.length && (
+        <span className="without-quote-container">
+          No hay citas para la palabra <i className="text-highlight">{keyword}.</i>
+        </span>
+      )}
+    </Layout>
   );
 }
 
