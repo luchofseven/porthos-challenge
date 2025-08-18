@@ -1,15 +1,19 @@
 import { Children, type CSSProperties, type ReactNode } from "react";
+import { useButtonUp } from "../../hooks";
+import { ArrowUp } from "../../icons/icons";
 
 interface Props {
-  children: ReactNode[];
+  children: ReactNode[] | ReactNode;
   className?: string;
   style?: CSSProperties;
 }
 
 export const QuotesContainer = ({ children, style, className }: Props) => {
+  const { showButton, scrollUp } = useButtonUp();
+
   return (
     <div className={className} style={style}>
-      {Children.toArray(children).map((child, index) => (
+      {Children.toArray(children)?.map((child, index) => (
         <div
           key={index}
           style={{
@@ -21,6 +25,12 @@ export const QuotesContainer = ({ children, style, className }: Props) => {
           {child}
         </div>
       ))}
+
+      {showButton && (
+        <button className="btn-up" onClick={scrollUp}>
+          <ArrowUp />
+        </button>
+      )}
     </div>
   );
 };

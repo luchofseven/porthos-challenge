@@ -1,9 +1,9 @@
-import { downloadQuoteTxt } from "../../services/download-quote-txt";
-import { parseAuthorFileName } from "../../utils/parse-author-file-name";
-import type { QuoteProps } from "../../interfaces";
+import { downloadQuoteTxt } from "../../services";
+import { parseAuthorFileName } from "../../utils";
 import { DownloadIcon } from "../../icons/icons";
+import type { Quote } from "../../interfaces";
 
-export const QuoteDownloadTxtBtn = ({ quote, author }: QuoteProps) => {
+export const QuoteDownloadTxtBtn = ({ quote, author }: Quote) => {
   const txtAuthorName = parseAuthorFileName(author);
 
   {
@@ -14,7 +14,7 @@ export const QuoteDownloadTxtBtn = ({ quote, author }: QuoteProps) => {
     <button type="button" onClick={() => downloadQuoteTxt(`${quote} - ${author}`, `quote-of-day-${txtAuthorName}.txt`)} className="btn-download-txt">
       <span>
         <DownloadIcon />
-        Descargar .txt
+        Download .txt
       </span>
     </button>
   );

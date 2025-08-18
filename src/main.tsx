@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import { HashRouter, Navigate, Route, Routes } from "react-router";
 import { QuotesProvider } from "./context/QuotesContex.tsx";
 import { QuoteOfDayPage } from "./pages/QuoteOfDay.tsx";
 import App from "./App.tsx";
@@ -9,7 +9,7 @@ import "./index.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QuotesProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/qod" element={<QuoteOfDayPage />} />
@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")!).render(
           {/* Ruta comodín para que cualquier otro path sea redirigido a la raíz "/" */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </QuotesProvider>
   </StrictMode>
 );

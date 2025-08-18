@@ -1,5 +1,5 @@
 import { availableKeywords } from "../../../mocks/keywords";
-import { useQuotes } from "../../hooks/useQuotes";
+import { useQuotes } from "../../hooks";
 import { setCookie } from "../../utils";
 
 export const QuoteMoreAboutBtn = ({ quote }: { quote: string }) => {
@@ -10,7 +10,6 @@ export const QuoteMoreAboutBtn = ({ quote }: { quote: string }) => {
   });
 
   const handleClick = () => {
-    console.log({ keywordMatch });
     if (keywordMatch) {
       setCookie({ name: "lastSelectedKeyword", value: keywordMatch, hours: 1 });
       onChangeKeyword(keywordMatch);
@@ -20,7 +19,7 @@ export const QuoteMoreAboutBtn = ({ quote }: { quote: string }) => {
   return (
     keywordMatch && (
       <button type="button" onClick={handleClick} className="quotes-article-quote-keyword-match">
-        Más sobre <span>{keywordMatch}</span>
+        More with <span>{keywordMatch}</span>
       </button>
     )
   );

@@ -1,18 +1,24 @@
-import { useQuotes } from "../hooks/useQuotes";
+import { useRandomQuote } from "../hooks";
 import { Layout } from "../layout/Layout";
-import { Quote } from "../quotes/components/Quote";
-import { QuotesContainer } from "../quotes/components/QuotesContainer";
+import { Quote, QuotesContainer } from "../quotes/components";
+import { Error, Loader } from "../shared/components";
 
 export const QuoteOfDayPage = () => {
-  const { quoteOfDay } = useQuotes();
+  const { randomQuote, loading, error, errorMessage } = useRandomQuote();
 
   return (
     <Layout>
-      <QuotesContainer className="quotes-container">
-        {quoteOfDay.map(({ author, quote }) => (
-          <Quote key={quote} author={author} quote={quote} qod />
-        ))}
-      </QuotesContainer>
+      {loading && !error && <Loader />}
+
+      {!loading && !error && randomQuote && (
+        <QuotesContainer className="quotes-container">
+          <Quote key={randomQuote?.id} id={randomQuote.id} author={randomQuote?.author} quote={randomQuote?.quote} qod />
+        </QuotesContainer>
+      )}
+
+      {!loading && !error && !randomQuote && <span className="without-quote-container">No random quote to show.</span>}
+
+      {!loading && error && errorMessage && <Error message={errorMessage} />}
     </Layout>
   );
 };

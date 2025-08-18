@@ -1,6 +1,6 @@
 ## **Challenge - Porthos**
 
-#### **Landing Page de Citas con ZenQuotes API**
+#### **Landing Page de Citas**
 
 ###### API
 

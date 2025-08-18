@@ -9,7 +9,8 @@ export const Layout = ({ children }: { children: ReactNode | ReactNode[] }) => {
     <>
       <header>
         <div>
-          <h1>Porthocitas</h1>
+          <h1>Porthoquotes</h1>
+
           <button type="button" onClick={() => setShowNav(!showNav)} className="btn-nav">
             {showNav ? <CloseMenu /> : <OpenMenu />}
           </button>
@@ -19,12 +20,12 @@ export const Layout = ({ children }: { children: ReactNode | ReactNode[] }) => {
           <ul>
             <li>
               <NavLink to="/" onClick={() => setShowNav(!showNav)}>
-                Inicio
+                Home
               </NavLink>
             </li>
             <li>
               <NavLink to="/qod" onClick={() => setShowNav(!showNav)}>
-                Cita del día
+                Random quote
               </NavLink>
             </li>
           </ul>
@@ -35,8 +36,8 @@ export const Layout = ({ children }: { children: ReactNode | ReactNode[] }) => {
 
       <footer>
         Inspirational quotes provided by
-        <a href="https://zenquotes.io/" target="_blank">
-          ZenQuotes API
+        <a href="https://dummyjson.com/" target="_blank" title="Go to DummyJSON website">
+          DummyJSON
         </a>
       </footer>
     </>

@@ -1,8 +1,13 @@
-export interface ApiQuoteProps {
-  a: string;
-  c: string;
-  h: string;
-  q: string;
+export interface ApiQuotesProps {
+  limit: number;
+  quotes: Quote[];
+  skip: number;
+  total: number;
 }
 
-export type ApiQuoteOfDayProps = Omit<ApiQuoteProps, "c">;
+export interface Quote {
+  author: string;
+  id: number;
+  qod?: boolean;
+  quote: string;
+}
