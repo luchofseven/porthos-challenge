@@ -1,12 +1,11 @@
-import type { ApiQuotesProps, Quote } from "../interfaces";
-
-const API_URL = "https://dummyjson.com";
+import { API_URL } from "../const/apiUrl";
+import type { ApiQuotesResponse, Quote } from "../interfaces";
 
 // Para obtener todas las citas (quotes)
-export const getQuotes = async (): Promise<ApiQuotesProps> => {
+export const getQuotes = async (): Promise<ApiQuotesResponse> => {
   try {
     const response = await fetch(`${API_URL}/quotes`);
-    const data: ApiQuotesProps = await response.json();
+    const data: ApiQuotesResponse = await response.json();
 
     if (!data) {
       throw new Error("getQuotes - An error occurred while calling the API");

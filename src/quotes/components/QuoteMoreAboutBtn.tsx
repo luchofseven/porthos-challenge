@@ -1,6 +1,6 @@
 import { availableKeywords } from "../../../mocks/keywords";
 import { useQuotes } from "../../hooks";
-import { setCookie } from "../../utils";
+import { setCookie } from "../../services";
 
 export const QuoteMoreAboutBtn = ({ quote }: { quote: string }) => {
   const { onChangeKeyword } = useQuotes();

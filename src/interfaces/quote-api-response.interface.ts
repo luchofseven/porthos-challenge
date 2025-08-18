@@ -1,4 +1,4 @@
-export interface ApiQuotesProps {
+export interface ApiQuotesResponse {
   limit: number;
   quotes: Quote[];
   skip: number;

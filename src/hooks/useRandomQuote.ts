@@ -11,6 +11,7 @@ export const useRandomQuote = () => {
     const fetchRandomQuote = async () => {
       try {
         setLoading(true);
+
         const quote = await getRandomQuote();
         setRandomQuote(quote);
       } catch (err) {
@@ -23,6 +24,7 @@ export const useRandomQuote = () => {
         setLoading(false);
       }
     };
+
     fetchRandomQuote();
   }, []);
 

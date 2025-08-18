@@ -5,15 +5,32 @@
 
 #### API - DUmmyJSON
 
-- [https://dummyjson.com/](https://dummyjson.com/docs/quotes)
+- [dummyjson.com - quotes](https://dummyjson.com/docs/quotes)
+- [dummyjson.com - posts](https://dummyjson.com/docs/posts)
 
-Si bien esta API no es exactamente igual a la proporcionada, cumple los requisitos mínimos, excepto la búsqueda por keyword, es decir, no es posible recuperar citas por palabras claves ya que no cuenta con un endpoint que lo facilite.
+Si bien esta API no es exactamente igual a la proporcionada, cumple los requisitos mínimos.  
+La sección de citas (quotes) no cuenta con un endpoint para recuperar tales por palabra clave (keyword) por lo que decidí utilizar la de publicaciones (posts) que sí cuenta con tal función y al menos poder realizar algo similar a lo requerido en el challenge.
 
 #### ¿Cómo ejecutar la aplicación localmente?
 
 1. Clonamos el repositorio en alguna carpeta a elección con `git clone https://github.com/luchofseven/porthos-challenge.git`
 2. Una vez dentro del proyecto, procedemos a instalar las dependencias con `npm install`.
 3. Luego ejecutamos `npm run dev` y deberíamos poder visualizar por defecto el proyecto en la siguiente dirección: `http://localhost:5173/`.
+
+#### Funcionalidades
+
+- Por defecto en el inicio se muestran 30 citas aleatorias.
+- Se muestra un selector de posibles palabras claves disponibles (al cambiar de API solo funciona con algunas citas).
+- Al hacer click en el botón **more with $keyword** de las citas que lo posean, se guarda la palabra clave en una cookie llamada **lastSelectedKeyword** (la cookie expira en 1 hora).
+- Al cargar la página, si la cookie existe, la primer cita mostrada pertenece a esa palabra clave. Las demás están en un órden aleatorio.
+- Si no existe la cookie, se muestran citas aleatorias.
+- Al entrar en **/qod** se muestra una cita random la cual puede ser descargada en formato .txt.
+- Al entrar a **/posts** se puede buscar publicaciones por alguna palabra clave por ej: (love, life, work, etc).
+
+#### Extras
+
+- Se agregó un pequeño **debounce** para retardar un breve periodo de tiempo la petición a la API cuando el usuario esta tipeando la palabra clave en **/posts**.
+- Se implementó un diccionario para que cuando el usuario vuelva a tipear una palabra clave que ya había sido buscada no se haga la petición y se devuelvan las publicaciones que ya se habían obtenido anteriormente.
 
 #### Tecnologías y dependencias utilizadas
 

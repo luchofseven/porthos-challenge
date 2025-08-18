@@ -28,6 +28,11 @@ export const Layout = ({ children }: { children: ReactNode | ReactNode[] }) => {
                 Random quote
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/posts" onClick={() => setShowNav(!showNav)}>
+                Search posts
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>
@@ -35,7 +40,7 @@ export const Layout = ({ children }: { children: ReactNode | ReactNode[] }) => {
       <main>{children}</main>
 
       <footer>
-        Inspirational quotes provided by
+        Quotes and posts provided by
         <a href="https://dummyjson.com/" target="_blank" title="Go to DummyJSON website">
           DummyJSON
         </a>

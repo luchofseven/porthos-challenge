@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
-import { getQuotes } from "../services";
-import { getCookie } from "../utils";
+import { getQuotes, getCookie } from "../services";
 import type { Quote } from "../interfaces";
 
 interface QuotesContextProps {
@@ -45,6 +44,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
     const fetchQuotes = async () => {
       try {
         setLoading(true);
+
         const data = await getQuotes();
         setQuotes(data.quotes);
       } catch (err) {
@@ -70,17 +70,17 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
   }, [quotes, keyword]);
 
   useEffect(() => {
-    const keyword = getCookie({ name: "lastSelectedKeyword" });
+    const keywordFromCookie = getCookie({ name: "lastSelectedKeyword" });
 
-    if (keyword) {
-      setKeyword(keyword);
-      const quoteByKeyword = quotes?.find(({ quote }) => quote.split(" ").includes(keyword));
+    if (keywordFromCookie) {
+      setKeyword(keywordFromCookie);
+      const quoteByKeyword = quotes?.find(({ quote }) => quote.split(" ").includes(keywordFromCookie));
 
       if (quoteByKeyword) {
         const randomQuotes = quotes?.filter((quote) => quote.id !== quoteByKeyword.id);
         setFilteredQuotes([quoteByKeyword, ...randomQuotes]);
       } else {
-        const filteredQuotes = quotes?.filter(({ quote }) => quote.split(" ").includes(keyword));
+        const filteredQuotes = quotes?.filter(({ quote }) => quote.split(" ").includes(keywordFromCookie));
         setFilteredQuotes(filteredQuotes);
       }
     } else {
