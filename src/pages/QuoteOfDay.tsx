@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRandomQuote } from "../hooks";
 import { Layout } from "../layout/Layout";
 import { Quote, QuotesContainer } from "../quotes/components";
@@ -5,6 +6,10 @@ import { Error, Loader } from "../shared/components";
 
 export const QuoteOfDayPage = () => {
   const { randomQuote, loading, error, errorMessage } = useRandomQuote();
+
+  useEffect(() => {
+    document.title = "Porthoquotes - Random quote";
+  }, []);
 
   return (
     <Layout>

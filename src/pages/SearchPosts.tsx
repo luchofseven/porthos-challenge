@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { usePost } from "../hooks";
 import { Layout } from "../layout/Layout";
 import { QuotesContainer } from "../quotes/components";
@@ -6,6 +7,10 @@ import { Error, Loader } from "../shared/components";
 
 export const SearchPostsPage = () => {
   const { posts, keyword, loading, error, errorMessage } = usePost();
+
+  useEffect(() => {
+    document.title = "Porthoquotes - Search posts";
+  }, []);
 
   return (
     <Layout>

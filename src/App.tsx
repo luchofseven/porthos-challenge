@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Layout } from "./layout/Layout";
 import { QuotesContainer } from "./quotes/components/QuotesContainer";
 import { Quote } from "./quotes/components/Quote";
@@ -7,6 +8,10 @@ import { Error, Loader } from "./shared/components";
 
 function App() {
   const { quotes, keyword, loading, error, errorMessage } = useQuotes();
+
+  useEffect(() => {
+    document.title = "Porthoquotes";
+  }, []);
 
   return (
     <Layout>

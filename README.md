@@ -1,5 +1,9 @@
 ## Porthos - Challenge - Landing Page de Citas
 
+#### Despliegue
+
+- Se puede visualizar la app en el siguiente enlace: [https://genuine-palmier-7152d3.netlify.app/](https://genuine-palmier-7152d3.netlify.app/) o levantar el proyecto localmente, más abajo explicado.
+
 > [!IMPORTANT]
 > En la **API** proporcionada: [https://zenquotes.io/](https://zenquotes.io/), no tuve posibilidad de utilizarla, ya que restringe las peticiones por bloqueos de **CORS**, además, los endpoints requeridos para lograr los requerimientos del challenge, actualmente son de pagos, por lo cual indagué un poco y me encontré con una API gratuita de similar funcionalidad y recursos.
 
