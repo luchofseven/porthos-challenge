@@ -1,4 +1,4 @@
-## Porthos - Challenge - Landing Page de Citas
+## Challenge - Landing Page de Citas
 
 #### Despliegue
 
@@ -17,7 +17,7 @@ La sección de citas (quotes) no cuenta con un endpoint para recuperar tales por
 
 #### ¿Cómo ejecutar la aplicación localmente?
 
-1. Clonamos el repositorio en alguna carpeta a elección con `git clone https://github.com/luchofseven/porthos-challenge.git`
+1. Clonamos el repositorio en alguna carpeta a elección con `git clone https://github.com/luchofseven/challenge-it.git`
 2. Una vez dentro del proyecto, procedemos a instalar las dependencias con `npm install`.
 3. Luego ejecutamos `npm run dev` y deberíamos poder visualizar por defecto el proyecto en la siguiente dirección: `http://localhost:5173/`.
 
